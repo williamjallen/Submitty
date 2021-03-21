@@ -175,6 +175,14 @@ function delayedNotebookSave() {
 }
 
 function notebookScrollLoad() {
+  // var studentSelectOption = localStorage.getItem('ta-grading-settings-change-student-mode');
+  // if (studentSelectOption === null) {
+  //   localStorage.setItem('ta-grading-settings-change-student-mode', 'student');
+  //   //student, ungraded-student, itempool-student, ungraded-itempool-student
+  //   //ta-grading-notebook-<semester>-<course>-<gradeable>-
+  //   var studentSelectOption = 'student';
+  // }
+
   var notebookView = $('#notebook-view');
   if (notebookView !== 0 && notebookView.is(":visible")) {
     var elementID = localStorage.getItem('ta-grading-notebook-view-scroll-id');
@@ -519,6 +527,8 @@ function gotoPrevStudent(to_ungraded = false) {
 }
 
 function gotoNextStudent(to_ungraded = false) {
+
+  // let mode = localStorage.getItem()
 
   let selector;
   let window_location;

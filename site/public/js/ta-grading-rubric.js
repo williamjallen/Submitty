@@ -2228,6 +2228,7 @@ function reloadGradingRubric(gradeable_id, anon_id) {
             alert('Could not fetch gradeable rubric: ' + err.message);
         })
         .then(function (gradeable) {
+            console.log(gradeable);
             gradeable_tmp = gradeable;
             return ajaxGetGradedGradeable(gradeable_id, anon_id, false);
         })
@@ -2235,6 +2236,7 @@ function reloadGradingRubric(gradeable_id, anon_id) {
             alert('Could not fetch graded gradeable: ' + err.message);
         })
         .then(function (graded_gradeable) {
+            console.log(graded_gradeable);
             return renderGradingGradeable(getGraderId(), gradeable_tmp, graded_gradeable,
                 isGradingDisabled(), canVerifyGraders(), getDisplayVersion());
         })

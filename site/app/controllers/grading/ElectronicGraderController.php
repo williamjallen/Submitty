@@ -1228,7 +1228,7 @@ class ElectronicGraderController extends AbstractController {
      *
      * @Route("/courses/{_semester}/{_course}/gradeable/{gradeable_id}/grading/grade")
      */
-    public function showGrading($gradeable_id, $who_id = '', $from = "", $to = null, $gradeable_version = null, $sort = "id", $direction = "ASC", $to_ungraded = null, $component_id = "-1", $anon_mode = false) {
+    public function showGrading($gradeable_id, $who_id = '', $from = "", $to = null, $gradeable_version = null, $sort = "id", $direction = "ASC", $to_ungraded = null, $component_id = "-1", $anon_mode = false, $component_itempool = null) {
         if (empty($this->core->getQueries()->getTeamsById([$who_id])) && $this->core->getQueries()->getUserById($who_id) == null) {
             $anon_mode = true;
         }
@@ -1683,6 +1683,13 @@ class ElectronicGraderController extends AbstractController {
         }
 
         $response_data['anon_id'] = $graded_gradeable->getSubmitter()->getAnonId();
+
+        $response_data['itempool_items'] = [];
+        $components = $gradeable->getComponents();
+        $submitter_itempool_map = $this->getItempoolMapForSubmitter($gradeable, $submitter);
+        foreach ($components as $key => $value) {
+            $response_data['itempool_items'][$value->getId()] = $value->getItempool() === '' ? '' : $submitter_itempool_map[$value->getItempool()];
+        }
         return $response_data;
     }
 
