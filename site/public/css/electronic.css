@@ -1246,6 +1246,7 @@ tr.is_publish {
     position:relative;
     float:left;
     width:100%;
+    padding-left: 10px;
 }
 
 #file-view {
