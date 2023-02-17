@@ -1,5 +1,7 @@
 name: Submitty CI
 
+  
+
 on:
    push:
      branches:
