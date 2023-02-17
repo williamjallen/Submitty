@@ -24,11 +24,11 @@ env:
 #    group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref == 'refs/heads/actions-concurrency' && github.run_id || github.head_ref || github.ref }}
 #    cancel-in-progress: true
 jobs:
-    log-group:
-      runs-on: ubuntu-20.04
-      steps:
-        - name: Log Group
-          run: echo "${{ github.workflow }}-${{ github.event_name }}-${{ github.ref == 'refs/heads/actions-concurrency' && github.run_id || github.head_ref || github.ref }}"
+#     log-group:
+#       runs-on: ubuntu-20.04
+#       steps:
+#         - name: Log Group
+#           run: echo "${{ github.workflow }}-${{ github.event_name }}-${{ github.ref == 'refs/heads/actions-concurrency' && github.run_id || github.head_ref || github.ref }}"
 
     eslint:
         runs-on: ubuntu-18.04
