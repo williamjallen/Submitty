@@ -1,6 +1,5 @@
 name: Submitty CI
 
-  
 
 on:
    push:
